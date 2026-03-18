@@ -136,8 +136,19 @@ const LlmResponseSchema = z.object({
   ),
 });
 
+function normalizeEndpoint(endpoint: string): string {
+  const trimmed = endpoint.trim();
+  const lower = trimmed.toLowerCase();
+  if (lower.includes("/chat/completions")) return trimmed;
+  const base = trimmed.replace(/\/+$/, "");
+  // Default to OpenAI-style path when only base URL is provided.
+  return `${base}/v1/chat/completions`;
+}
+
 async function callLlm(endpoint: string, apiKey: string, model: string, prompt: string): Promise<string> {
-  const res = await fetch(endpoint, {
+  const url = normalizeEndpoint(endpoint);
+
+  const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

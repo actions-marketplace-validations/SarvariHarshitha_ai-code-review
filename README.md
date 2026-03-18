@@ -58,3 +58,4 @@ npm run build
 - Trim or summarize scan logs to keep prompts small.
 - Use org secrets for `LLM_ENDPOINT` and `LLM_API_KEY`.
 - Demo: this repo includes `reports/sast.txt` and `reports/tests.txt` plus this README edit to exercise the AI reviewer.
+- DeepSeek: set `llm-endpoint` to `https://api.deepseek.com/chat/completions` (the action will also append `/v1/chat/completions` if you pass the base URL only) and `model` to `deepseek-chat`.
