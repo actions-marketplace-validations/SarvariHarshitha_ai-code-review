@@ -57,3 +57,4 @@ npm run build
 - Ensure `project.md` exists on the base branch; otherwise the action notes it as missing.
 - Trim or summarize scan logs to keep prompts small.
 - Use org secrets for `LLM_ENDPOINT` and `LLM_API_KEY`.
+- Demo: this repo includes `reports/sast.txt` and `reports/tests.txt` plus this README edit to exercise the AI reviewer.

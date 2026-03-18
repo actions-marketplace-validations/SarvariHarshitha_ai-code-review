@@ -1,0 +1,3 @@
+SAST summary (demo)
+- No critical issues found.
+- 1 warning: input validation missing in sample endpoint (line 42).
