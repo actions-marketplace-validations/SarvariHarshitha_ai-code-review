@@ -1,0 +1,40 @@
+name: "AI PR Reviewer"
+description: "Runs an LLM-based review on pull requests using project.md, diffs, and scan logs"
+author: "Your Team"
+runs:
+  using: "node20"
+  main: "dist/index.js"
+inputs:
+  llm-endpoint:
+    description: "Base URL for chat completion endpoint (OpenAI-compatible)"
+    required: true
+  llm-api-key:
+    description: "API key for the LLM endpoint"
+    required: true
+  model:
+    description: "Model name to use (e.g., gpt-4o-mini)"
+    required: false
+    default: "gpt-4o-mini"
+  project-md-path:
+    description: "Path to project architecture doc"
+    required: false
+    default: "project.md"
+  scan-log-paths:
+    description: "Comma-separated list of scan log file paths to include"
+    required: false
+    default: ""
+  max-files:
+    description: "Maximum number of changed files to inspect"
+    required: false
+    default: "50"
+  max-hunk-size:
+    description: "Maximum characters to keep from each patch hunk"
+    required: false
+    default: "8000"
+  post-mode:
+    description: "comment | summary (comment posts to PR, summary sets job summary)"
+    required: false
+    default: "comment"
+branding:
+  icon: "check-circle"
+  color: "purple"

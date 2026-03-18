@@ -1,0 +1,22 @@
+{
+  "name": "ai-pr-reviewer",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "typescript": "^5.4.2"
+  }
+}
