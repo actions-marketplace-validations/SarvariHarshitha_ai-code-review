@@ -19,7 +19,7 @@ jobs:
         with:
           llm-endpoint: ${{ secrets.LLM_ENDPOINT }}
           llm-api-key: ${{ secrets.LLM_API_KEY }}
-          model: gpt-4o-mini
+          model: deepseek-chat
           project-md-path: project.md
           scan-log-paths: "reports/sast.txt,reports/tests.txt"
           post-mode: comment
