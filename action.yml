@@ -1,6 +1,6 @@
 name: "AI PR Reviewer"
 description: "Runs an LLM-based review on pull requests using project.md, diffs, and scan logs"
-author: "Your Team"
+author: "Sarvari Harshitha Konda"
 runs:
   using: "node20"
   main: "dist/index.js"
