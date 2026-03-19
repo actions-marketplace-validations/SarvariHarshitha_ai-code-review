@@ -34,12 +34,18 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
-      - uses: ./
+
+      - name: AI Assisted PR Reviewer
+        uses: SarvariHarshitha/ai-code-review@1.0.0   
         with:
-          llm-endpoint: ${{ secrets.LLM_ENDPOINT }}
-          llm-api-key: ${{ secrets.LLM_API_KEY }}
+          llm-endpoint: ${{ secrets.LLM_ENDPOINT }}          # OpenAI-compatible chat endpoint
+          llm-api-key: ${{ secrets.LLM_API_KEY }}            # API key for the endpoint
+          model: gpt-4o-mini                                 # or deepseek-chat, etc.
           project-md-path: project.md
-          scan-log-paths: "reports/sast.txt,reports/tests.txt"
+          scan-log-paths: reports/sast.txt,reports/tests.txt # optional
+          post-mode: comment                                 # or summary
+          max-files: 50
+          max-hunk-size: 8000
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
